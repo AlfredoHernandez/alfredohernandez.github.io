@@ -1,0 +1,7 @@
+- name: Git
+  percentage: 100
+  color: info
+
+- name: Sketch
+  percentage: 30
+  color: danger

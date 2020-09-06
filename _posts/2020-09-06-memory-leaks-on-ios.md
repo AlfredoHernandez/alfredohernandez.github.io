@@ -52,11 +52,11 @@ Tenemos dos variables, las cuales hacen referencia a dos objetos `Child` y `Pare
 
 ![Memory Leaks 1](./../assets/images/memory-leaks-1.png)
 
-Cuando a `john` se le asigna a su variable `parent` la referencia de `mom`, el ARC incrementa en 1 el contador de referencia de `Parent`. El estado quedaría de la siguiente manera:
+Cuando a `john` se le asigna a su variable `parent` la referencia de `mom`, el ARC incrementa en uno el contador de referencia de `Parent`. El estado quedaría de la siguiente manera:
 
 ![Memory Leaks 2](./../assets/images/memory-leaks-2.png)
 
-Lo mismo sucede cuando a `mom` se le asigna a su variable `child` la referencia de `john`, el contador de referencias de `Child` incrementa en 1. En este momento el estado quedaría de la siguiente manera:
+Lo mismo sucede cuando a `mom` se le asigna a su variable `child` la referencia de `john`, el contador de referencias de `Child` incrementa en uno. En este momento el estado quedaría de la siguiente manera:
 
 ![Memory Leaks 3](./../assets/images/memory-leaks-3.png)
 
@@ -73,7 +73,7 @@ En este momento el estado del ARC es el siguiente:
 
 ![Memory Leaks 4](./../assets/images/memory-leaks-4.png)
 
-Como podemos notar aún existen referencias hacia `Parent` y `Child`, pero una vez que perdimos las referencias de `john` y `mom`, no podemos "hace nil" las referencias de `jhon.parent` ni `mom.child` porque perdimos el acceso a dichas instancias. Como resultado tenemos un Memory Leak.
+Como podemos notar aún existen referencias hacia `Parent` y `Child`, pero una vez que perdimos las referencias de `john` y `mom`, no podemos "hacer nil" las referencias de `jhon.parent` ni `mom.child` porque perdimos el acceso a dichas instancias. Como resultado tenemos un Memory Leak.
 
 Este caso es conocido como Ciclo de Retención (Retain Cycle). **Ciclo** porque ambas referencias apuntan entre si, generando un circulo de referencias de memoria. **Retención** porque las referencias a dichos objetos siguen en memoria.
 
@@ -120,7 +120,7 @@ En este momento la aplicación comienza a iniciar, y podemos ver que la línea d
 
 ![Leaks from Xcode](./../assets/images/memory-leaks-9.png)
 
-Y ahora la parte que nos interesa. Damos click en el instrumento de *Leaks*, y podemos observar que existen 2 memory leaks. Como podrás imaginar, estos dos nuevo leaks son los que se generaron debido a que perdimos la referencia de `john` y `mom`. Podemos comprobarlo en la tabla inferior. Tenemos información de que instancias estan aún en memoria, en nuestro caso son dos instancias, una de `Child` y otra de `Parent`. Tenemos también información de la dirección de memoria en la que está dicha instancia, el tamaño, etc. De igual manera te invito a revisar qué información extra puedes obtener.
+Y ahora la parte que nos interesa. Damos click en el instrumento de *Leaks*, y podemos observar que existen 2 memory leaks. Como podrás imaginar, estos dos "nuevos leaks" son los que se generaron debido al ciclo de retención entre `john` y `mom`. Podemos comprobarlo en la tabla inferior. Tenemos información de qué instancias estan aún en memoria. En nuestro caso son dos instancias, una de `Child` y otra de `Parent`. Tenemos también información de la dirección de memoria en la que está dicha instancia, el tamaño, etc. De igual manera te invito a revisar qué información extra puedes obtener.
 
 ![Leaks from Xcode](./../assets/images/memory-leaks-10.png)
 
@@ -138,16 +138,16 @@ Claramente se observa que el memory leak se generó porque hay una referencia ci
 
 ![Leaks from Xcode](./../assets/images/memory-leaks-13.png)
 
-Debido a esto el *ARC* mantiene los contadores en uno y se produce el memory leak.
+Recordemos que el *ARC* mantiene los contadores en uno de ambas instancias.
 
 ![Leaks from Xcode](./../assets/images/memory-leaks-14.png)
 
-**TIP:** Si estas trabajando en equipo y te tocó revisar algún bug que involucra algún memory leak, puedes guardar estos resultados para adjuntarlos como evidencia de dicho *issue*.
+**TIP:** Si estas trabajando en equipo de testing y te tocó revisar algún bug que involucra algún memory leak, puedes guardar estos resultados para adjuntarlos como evidencia de dicho *issue*.
 
 ## ¿Cómo solucionar el memory leak?
 
 Por defecto las referencias a clases en Swift son del tipo **strong** (referencia fuerte), por lo que cada clase hija se mantendrá "viva" en todo momento que la clase padre también lo esté.
-Si la clase padre muere, como conscecuencia la clase hija también se muere. Los contadores de referencias de las clase padre e hija se decrementan en uno.
+Si la clase padre muere, como conscecuencia la clase hija también muere. Recordemos que cuando "mueren", los contadores de referencias de las clase padre e hija se decrementan en uno.
 
 ![Leaks from Xcode](./../assets/images/memory-leaks-15.png)
 

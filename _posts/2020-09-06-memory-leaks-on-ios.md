@@ -1,8 +1,8 @@
 ---
 title: Memory Leaks en iOS
-tags: [ios, swift, xcode]
+tags: [ios, swift, xcode, memory-leaks]
 style: fill
-color: primary
+color: dark
 description: Un primer vistazo a los Memory Leaks en iOS, explicado de una manera muy simple y fácil de entender.
 ---
 

@@ -50,15 +50,27 @@ mom.child = john
 
 Tenemos dos variables, las cuales hacen referencia a dos objetos `Child` y `Parent`. En este momento el *ARC* tiene una referencia para el objeto `Child` y otra para el objeto `Parent`.
 
+<div class="no-border-radius" markdown="1">
+
 ![Memory Leaks 1](./../assets/images/memory-leaks-1.png)
+
+</div>
 
 Cuando a `john` se le asigna a su variable `parent` la referencia de `mom`, el ARC incrementa en uno el contador de referencia de `Parent`. El estado quedaría de la siguiente manera:
 
+<div class="no-border-radius" markdown="1">
+
 ![Memory Leaks 2](./../assets/images/memory-leaks-2.png)
+
+</div>
 
 Lo mismo sucede cuando a `mom` se le asigna a su variable `child` la referencia de `john`, el contador de referencias de `Child` incrementa en uno. En este momento el estado quedaría de la siguiente manera:
 
+<div class="no-border-radius" markdown="1">
+
 ![Memory Leaks 3](./../assets/images/memory-leaks-3.png)
+
+</div>
 
 Como podemos notar en el diagrama, existen dos referencias para ambos objetos. Dos de estas referencias son de los objectos `john` y `mom`, que son asignadas **en la creación de dichos objetos**. Las otras dos son referencias que se hacen por medio de las variables de los objetos `john` y `mom`.
 
@@ -71,7 +83,11 @@ mom = nil
 
 En este momento el estado del ARC es el siguiente:
 
+<div class="no-border-radius" markdown="1">
+
 ![Memory Leaks 4](./../assets/images/memory-leaks-4.png)
+
+</div>
 
 Como podemos notar aún existen referencias hacia `Parent` y `Child`, pero una vez que perdimos las referencias de `john` y `mom`, no podemos "hacer nil" las referencias de `jhon.parent` ni `mom.child` porque perdimos el acceso a dichas instancias. Como resultado tenemos un Memory Leak.
 
@@ -149,7 +165,11 @@ Recordemos que el *ARC* mantiene los contadores en uno de ambas instancias.
 Por defecto las referencias a clases en Swift son del tipo **strong** (referencia fuerte), por lo que cada clase hija se mantendrá "viva" en todo momento que la clase padre también lo esté.
 Si la clase padre muere, como conscecuencia la clase hija también muere. Recordemos que cuando "mueren", los contadores de referencias de las clase padre e hija se decrementan en uno.
 
+<div class="no-border-radius" markdown="1">
+
 ![Leaks from Xcode](./../assets/images/memory-leaks-15.png)
+
+</div>
 
 Así como existen referencias fuertes, también existen las referencias del tipo **weak** (referencia débil). Las referencias débiles **NO INCREMENTAN** el contador de referencias.
 Y es así como solucionaremos el problema de memory leak. Para ello haremos lo siguiente.
@@ -159,7 +179,11 @@ Y es así como solucionaremos el problema de memory leak. Para ello haremos lo s
 
 En nuestro caso de ejemplo consideraremos a **john** que es del tipo `Child`, ser la clase hija y **mom** ser la clase padre.
 
+<div class="no-border-radius" markdown="1">
+
 ![Leaks from Xcode](./../assets/images/memory-leaks-16.png)
+
+</div>
 
 Vamos a corregir nuestro código:
 
@@ -184,7 +208,11 @@ class Parent {
 
 Para este caso, el diagrama antes de hacer nil a **mom** y a **john** es el siguiente:
 
+<div class="no-border-radius" markdown="1">
+
 ![Leaks from Xcode](./../assets/images/memory-leaks-17.png)
+
+</div>
 
 Si corremos nuestra aplicación de ejemplo, podemos ver que en la consola de logs nos imprime lo siguiente:
 

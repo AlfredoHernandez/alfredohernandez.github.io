@@ -1,5 +1,5 @@
 ### Site Settings ###
-title               : alfredohdz
+title               : Alfredo Hernández
 description         : >-
                       "Done ✅ is better than perfect!"
 repository          : AlfredoHernandez/alfredohernandez.github.io
@@ -32,7 +32,7 @@ author:
 # instagram         : your_username
 # kaggle            : your_username
   linkedin          : alfredohernandezalarcon
-# medium            : your_username
+  medium            : ZtuX
 # soundcloud        : your_username
 # spotify           : your_username
 # stackoverflow     : your_user_id
@@ -83,7 +83,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      comments: true                                   # Set to true to enable disqus comments
+      comments: false                                   # Set to true to enable disqus comments
 
 ### Exclude from processing ###
 exclude:

@@ -1,12 +1,12 @@
 ---
 title: Proxy Design Pattern
-tags: [ios, swift, design-patterns, clean-architecture, memory-leaks]
+tags: [ios, swift, design-patterns, proxy-design-pattern, mvp, clean-architecture, memory-leaks]
 style: fill
 color: primary
 description: We talk about Proxy design pattern and an example of how to use it on iOS applications
 ---
 
-In this post we talk about the `Proxy` design pattern and an simple example how to use it, in this case, in iOS applications to prevent retain cycles in an effective and clean way.
+In this post we talk about the `Proxy` design pattern and a simple example how to use it, in this case, in iOS applications to prevent retain cycles in an effective and clean way.
 
 ### What is the Proxy design pattern?
 

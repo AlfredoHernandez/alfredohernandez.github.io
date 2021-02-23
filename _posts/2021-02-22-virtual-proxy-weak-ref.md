@@ -1,12 +1,12 @@
 ---
 title: Proxy Design Pattern
-tags: [ios, swift, xcode, design-patterns, weak-ref, clean-architecture]
+tags: [ios, swift, design-patterns, clean-architecture, memory-leaks]
 style: fill
 color: primary
 description: We talk about Proxy design pattern and an example of how to use it on iOS applications
 ---
 
-In this post we talk about the `Proxy` design pattern and an example of how to use it, in this case in iOS applications to prevent retain cycles in an effective and clean way.
+In this post we talk about the `Proxy` design pattern and an simple example how to use it, in this case, in iOS applications to prevent retain cycles in an effective and clean way.
 
 ### What is the Proxy design pattern?
 
@@ -18,11 +18,13 @@ And its diagram looks like this:
 
 ![Diagram](./../assets/images/virtual-proxy/Proxy_pattern_diagram.png)
 
+*Diagram from [Wikipedia](https://en.wikipedia.org/wiki/Proxy_pattern#/media/File:Proxy_pattern_diagram.svg)*
+
 If this is the first time that you hear about this design pattern, it can be a little confused, and their propourse can be not clear at all.  But let me give you an example to try to explain where can use this design pattern.
 
-### Using a proxy in the MVP design pattern
+### Using a proxy in the MVP UI design pattern
 
-When we are working with a UI design pattern like MVP in iOS applications, we notice that a retain cycle can be created if we don't **weakify** the view controller. Let's see the diagram:
+When we are working with a UI design pattern like MVP in iOS applications, we notice that a retain cycle can be created if we don't **weakify** the view controller due a two-way communication channel between `View` and `Presenter`. Let's see the diagram:
 
 ![MVP Diagram](./../assets/images/virtual-proxy/mvp.png)
 
@@ -86,13 +88,11 @@ As we can see, we need to be careful with the connection between the `Presenter`
 private weak var view: View?
 ```
 
-**Make sure to do the required changes in code to compile**
-
 But doing this, generates the following compiler error: 
 
 > 'weak' must not be applied to non-class-bound 'View'; consider adding a protocol conformance that has a class bound
 
-One way to solve this compilation error is making the protocol only for classes, which is defined as `The protocol to which all classes implicitly conform.` like this:
+We can easily solve this compilation error is making the protocol only for classes (using the `class` keyword to make the protocol Class-Only). This constraint is defined as `The protocol to which all classes implicitly conform.` like this:
 
 ```swift
 protocol View: class {
@@ -164,7 +164,10 @@ class Presenter {
 }
 ```
 
-In the Proxy design pattern we have a <<Subject Interface>> that in this case is our `View` protocol. Also we require a `RealSubject` and the `Proxy`, that in this case our *RealSubject* is the `ViewController` class and our *Proxy* is of course the `WeakRefProxy` class.
+In the *Proxy design pattern* we have a <<Subject Interface>> that in this case is our `View` protocol. Also we require a `RealSubject` and the `Proxy`, that in this case our *RealSubject* is the `ViewController` class and our *Proxy* is of course the `WeakRefProxy` class.
+
+![Diagram](./../assets/images/virtual-proxy/WeakRefDiagram.png)
+
 In the `WeakRefProxy` we surrogate the real implementation with a `weak` reference to it, that's all we want to avoid retain cycles. And now our `Composition Root` looks like this:
 
 ```swift
@@ -190,3 +193,27 @@ class Composer {
 ```
 
 We moved the memory management from the `Presenter` into the `CompositionRoot`, by doing so, we don't need to cover the requirement to constrain all view protocols to be classes in MVP and don't leak composition details in the presenter implementation.
+
+### Making generic our WeakRef Proxy
+
+Of course, creating a `WeakRefProxy` can be very tedious, so we ca create a generic one and implement the `View` methods into a extension, like so:
+
+```swift
+class WeakRefProxy<T: AnyObject> {
+    weak var object: T?
+
+    init(_ object: T) {
+        self.object = object
+    }
+}
+```
+
+```swift
+extension WeakRefProxy: View where T: View {
+    func display(_ viewModel: ViewModel) {
+        object?.display(viewModel)
+    }
+}
+```
+
+You can find the example source code on github: [https://github.com/alfredohdzdev/WeakRef](https://github.com/alfredohdzdev/WeakRef)

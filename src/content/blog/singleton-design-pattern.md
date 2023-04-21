@@ -1,6 +1,6 @@
 ---
-title: The Singleton Design Pattern.
-description: Learn more about the Singleton Design Pattern
+title: The Singleton Design Pattern
+description: Learn about the Singleton Design Pattern
 pubDatetime: 2023-01-06T12:00:00.000Z
 author: Jesús Alfredo Hernández Alarcón
 postSlug: singleton-design-pattern

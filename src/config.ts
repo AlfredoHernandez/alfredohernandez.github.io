@@ -4,7 +4,7 @@ export const SITE: Site = {
   website: "https://alfredohdz.io/",
   author: "Jesús Alfredo Hernández Alarcón",
   desc: "Alfredo's personal web site and blog",
-  title: "Alfredo Hernández",
+  title: "alfredohdz",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 5,

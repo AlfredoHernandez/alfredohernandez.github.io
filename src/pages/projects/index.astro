@@ -1,0 +1,45 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import { SITE } from "@config";
+import { getCollection } from "astro:content";
+import Hr from "@components/Hr.astro";
+import LinkButton from "@components/LinkButton.astro";
+
+const projects = await getCollection("project");
+---
+
+<Layout title={`My Projects | ${SITE.title}`}>
+  <Header activeNav="projects" />
+  <Main
+    pageTitle="Projects"
+    pageDesc="Check my personal projects that I've been worked"
+  >
+    {
+      projects.map(({ data }) => (
+        <>
+          <h1 class="project-title">{data.name}</h1>
+          <p>{data.description}</p>
+          <div>
+            <b>Website:</b>{" "}
+            <LinkButton href={data.website}>{data.website}</LinkButton>{" "}
+          </div>
+          <Hr />
+          <br />
+        </>
+      ))
+    }
+  </Main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  .project-title {
+    @apply text-2xl font-semibold text-skin-accent;
+  }
+</style>

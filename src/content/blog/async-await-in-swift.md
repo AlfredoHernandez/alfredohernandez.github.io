@@ -1,6 +1,6 @@
 ---
-title: Adding async/await support to your current async code base API's
-description: Learn how to add async/await support to your current API's
+title: Adding async await support to your current async code base APIs
+description: Learn how to add async/await support to your current APIs
 pubDatetime: 2021-06-17T12:00:00.000Z
 author: Jesús Alfredo Hernández Alarcón
 postSlug: async-await-in-swift
@@ -25,7 +25,7 @@ I fully recommend to read this for more information.
 
 To take advantage of this feature, we need the latest xcode beta version, that you can download from the official [apple developer website](https://developer.apple.com/download/).
 
-![Apple Developer Website](/public/assets/posts/async-await/async-0.png)
+![Apple Developer Website](/assets/posts/async-await/async-0.png)
 
 Now, we can add support to our current async API's using the latest Xcode version and Swift 5.5. Let's image we have a web service api call, which is one of the most common case as developers we deal it.
 
@@ -178,6 +178,6 @@ struct CatsView: View {
 }
 ```
 
-![CatsLoader](/public/assets/posts/async-await/async-7.png)
+![CatsLoader](/assets/posts/async-await/async-7.png)
 
 You can clone the sample code from the [github repository](https://github.com/AlfredoHernandez/async-await-support)

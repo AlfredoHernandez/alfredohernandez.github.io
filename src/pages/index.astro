@@ -23,7 +23,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
+      <h1>Welcome!</h1>
       <a
         target="_blank"
         href="/rss.xml"
@@ -41,25 +41,26 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        Hi! I am <bold>J. Alfredo Hernández Alarcón</bold> 👋, Software Engineer
+        with experience in mobile development using mainly agile methodologies. Experience
+        with all Apple ecosystem, with both Objective-C and Swift languages and TDD
+        methodology.
       </p>
       <p>
-        Read the blog posts or check
+        Read the blog posts or check my
         <LinkButton
           className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="https://github.com/AlfredoHernandez"
         >
-          README
-        </LinkButton> for more info.
+          Github profile
+        </LinkButton>
       </p>
+
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
+            <div class="social-links"> 🔗 Social Links:</div>
             <Socials />
           </div>
         )
@@ -72,7 +73,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
-            <h2>Featured</h2>
+            <h2>Featured Posts</h2>
             <ul>
               {featuredPosts.map(({ data }) => (
                 <Card

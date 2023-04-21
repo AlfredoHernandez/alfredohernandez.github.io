@@ -1,0 +1,15 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import { SITE } from "@config";
+---
+
+<Layout title={`My Projects | ${SITE.title}`}>
+  <Header activeNav="projects" />
+  <Main pageTitle="Projects" pageDesc="My personal projects">
+    <ul>Metro CDMX</ul>
+  </Main>
+  <Footer />
+</Layout>

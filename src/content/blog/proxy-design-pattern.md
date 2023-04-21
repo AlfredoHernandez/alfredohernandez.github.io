@@ -20,7 +20,7 @@ As defined in the book [Design Patterns](https://www.goodreads.com/book/show/850
 
 And its diagram looks like this:
 
-![Diagram](/public/assets/posts/virtual-proxy/Proxy_pattern_diagram.png)
+![Diagram](/assets/posts/virtual-proxy/Proxy_pattern_diagram.png)
 
 _Diagram from [Wikipedia](https://en.wikipedia.org/wiki/Proxy_pattern#/media/File:Proxy_pattern_diagram.svg)_
 
@@ -30,7 +30,7 @@ If this is the first time that you hear about this design pattern, it can be a l
 
 When we are working with a UI design pattern like MVP in iOS applications, we notice that a retain cycle can be created if we don't **weakify** the view controller due a two-way communication channel between `View` and `Presenter`. Let's see the diagram:
 
-![MVP Diagram](/public/assets/posts/virtual-proxy/mvp.png)
+![MVP Diagram](/assets/posts/virtual-proxy/mvp.png)
 
 For example:
 
@@ -170,7 +170,7 @@ class Presenter {
 
 In the _Proxy design pattern_ we have a <<Subject Interface>> that in this case is our `View` protocol. Also we require a `RealSubject` and the `Proxy`, that in this case our _RealSubject_ is the `ViewController` class and our _Proxy_ is of course the `WeakRefProxy` class.
 
-![Diagram](/public/assets/posts/virtual-proxy/WeakRefDiagram.png)
+![Diagram](/assets/posts/virtual-proxy/WeakRefDiagram.png)
 
 In the `WeakRefProxy` we surrogate the real implementation with a `weak` reference to it, that's all we want to avoid retain cycles. And now our `Composition Root` looks like this:
 

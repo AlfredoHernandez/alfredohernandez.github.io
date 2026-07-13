@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AdMoboard — Your AdMob earnings, beautifully on iOS</title>
+  <meta name="description" content="AdMoboard is a native iOS dashboard for your Google AdMob earnings: today at a glance, trends, breakdowns by app and country, a home-screen widget, and on-device intelligence." />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff; --fg: #1d1d1f; --muted: #6e6e73; --card: #f5f5f7; --tint: #0a84ff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #000; --fg: #f5f5f7; --muted: #98989d; --card: #1c1c1e; }
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body { background: var(--bg); color: var(--fg); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 24px 64px; }
+    .logo { font-size: 56px; line-height: 1; }
+    h1 { font-size: 40px; letter-spacing: -0.02em; margin: 16px 0 8px; }
+    .tagline { font-size: 21px; color: var(--muted); margin-bottom: 32px; }
+    h2 { font-size: 22px; margin: 40px 0 12px; }
+    ul { padding-left: 22px; }
+    li { margin: 8px 0; }
+    .card { background: var(--card); border-radius: 16px; padding: 20px 24px; margin: 24px 0; }
+    .card p { color: var(--muted); font-size: 15px; }
+    a { color: var(--tint); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card); color: var(--muted); font-size: 14px; }
+    .badge { display: inline-block; background: var(--card); border-radius: 999px; padding: 4px 12px; font-size: 13px; color: var(--muted); margin-right: 6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="logo" aria-hidden="true">📊</div>
+    <h1>AdMoboard</h1>
+    <p class="tagline">Your Google AdMob earnings, beautifully — a native iOS dashboard.</p>
+    <p>
+      <span class="badge">iOS 18+</span>
+      <span class="badge">Native SwiftUI</span>
+      <span class="badge">On-device intelligence</span>
+    </p>
+
+    <h2>What it does</h2>
+    <ul>
+      <li><strong>Earnings at a glance</strong> — today, yesterday, last 7 days, this month and last month, with honest comparisons against the same days of the previous period.</li>
+      <li><strong>Breakdowns</strong> — see which apps, ad units and countries earn the most, and drill into any of them.</li>
+      <li><strong>Home-screen widget</strong> — today's figure without opening the app.</li>
+      <li><strong>Ask</strong> — ask questions like <em>"How much did I earn yesterday?"</em> in plain language. Questions are interpreted <strong>on your device</strong> with Apple Intelligence; every figure in every answer is computed by the app from your own report. Nothing leaves your iPhone.</li>
+      <li><strong>Multiple accounts, Face ID lock, offline cache</strong> — your data stays available and protected.</li>
+    </ul>
+
+    <h2>How it works with your Google account</h2>
+    <div class="card">
+      <p>
+        AdMoboard signs in with your Google account and reads your AdMob reports through the official
+        <strong>AdMob API</strong> using the read-only scope (<code>admob.readonly</code>). It can never modify
+        your AdMob configuration. Reports are fetched directly from Google to your device, displayed to you,
+        and cached only on your device. AdMoboard has no servers and shares your data with no one.
+        See the <a href="/admoboard/privacy/">privacy policy</a> for the full details.
+      </p>
+    </div>
+
+    <h2>Contact</h2>
+    <p>Questions or feedback: <a href="mailto:contact@alfredohdz.io">contact@alfredohdz.io</a></p>
+
+    <footer>
+      <p>AdMoboard is developed by Jesús Alfredo Hernández Alarcón · <a href="https://alfredohdz.io">alfredohdz.io</a></p>
+      <p><a href="/admoboard/privacy/">Privacy Policy</a></p>
+      <p>Google AdMob is a trademark of Google LLC. AdMoboard is an independent app and is not affiliated with or endorsed by Google.</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -30,6 +30,7 @@ module.exports = {
       },
     },
     backgroundColor: {
+      transparent: "transparent",
       skin: {
         fill: withOpacity("--color-fill"),
         accent: withOpacity("--color-accent"),
@@ -59,6 +60,7 @@ module.exports = {
     },
     fontFamily: {
       mono: ["IBM Plex Mono", "monospace"],
+      display: ["Space Grotesk", "Helvetica Neue", "Arial", "sans-serif"],
     },
     // },
   },

@@ -103,7 +103,7 @@ export default function SearchBar({ searchList }: Props) {
         </div>
       )}
 
-      <ul>
+      <ul className="post-grid">
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <Card

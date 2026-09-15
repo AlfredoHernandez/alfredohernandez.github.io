@@ -5,6 +5,7 @@ website: https://alfredohdz.io/Metro/
 icon: /metro/icon.png
 platforms: [iOS, Android]
 appStore: https://apps.apple.com/app/metro-cdmx/id1575157353
+playStore: https://play.google.com/store/apps/details?id=io.alfredohdz.metrocdmx
 featured: true
 order: 1
 ---

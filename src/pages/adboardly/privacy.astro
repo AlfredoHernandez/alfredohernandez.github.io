@@ -1,0 +1,200 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import { SITE } from "@config";
+---
+
+<Layout
+  title={`Adboardly Privacy Policy | ${SITE.title}`}
+  description="What Adboardly accesses, what it does with it, and what it never does."
+>
+  <Header activeNav="projects" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section id="privacy" class="prose mb-28 max-w-3xl">
+      <h1 class="text-2xl tracking-wider sm:text-3xl">
+        Adboardly Privacy Policy
+      </h1>
+      <p>
+        <em
+          >Effective date: September 15, 2026. Replaces the policy of July 13,
+          2026.</em>
+      </p>
+
+      <p>
+        Adboardly ("the app") is an iOS and Android application developed by
+        Jesús Alfredo Hernández Alarcón that displays your Google AdMob earnings
+        on your device. This policy explains what data the app accesses, what it
+        does with it, and what it never does.
+      </p>
+      <blockquote>
+        The short version: your reports go from Google to your phone and stay
+        there. Adboardly has no servers and no analytics. The free version shows
+        ads served by Google, and that is the only data that leaves your device.
+      </blockquote>
+
+      <h2>Google user data the app accesses</h2>
+      <p>
+        When you sign in with Google, the app requests the following, and
+        nothing more:
+      </p>
+      <ul>
+        <li>
+          <strong>Basic profile</strong> (name, email address, profile photo), used
+          solely to label the account inside the app so you can tell your accounts
+          apart.
+        </li>
+        <li>
+          <strong>AdMob data</strong> through the official AdMob API with the read-only
+          scope (<code>https://www.googleapis.com/auth/admob.readonly</code>):
+          your publisher account information (publisher ID, reporting currency
+          and time zone), earnings reports, and your inventory of apps and ad
+          units. The scope is read-only by design; the app cannot change
+          anything in your AdMob account.
+        </li>
+      </ul>
+
+      <h2>How that data is used</h2>
+      <ul>
+        <li>
+          Reports are fetched directly from Google's servers to your device over
+          HTTPS and rendered on screen for you. There is no intermediary server:
+          the developer never receives, sees, stores or processes your data.
+        </li>
+        <li>
+          The "Ask" feature interprets your questions on your device, with Apple
+          Intelligence on iPhone and with Gemini Nano on Android. Your earnings
+          data is never sent to any external model or service; every figure in
+          every answer is computed locally from the report already on your
+          device.
+        </li>
+        <li>
+          A summary of today's and this month's earnings is stored in the app's
+          private storage on your device so the home-screen widget, the Quick
+          Settings tile on Android, and the Siri and on-device assistant
+          integrations can display it.
+        </li>
+        <li>
+          Notifications (the daily summary and the earnings and blocked-app
+          alerts) are computed and shown locally; nothing is sent to a push
+          service.
+        </li>
+      </ul>
+
+      <h2>Advertising</h2>
+      <p>
+        The free version shows native ads served by the Google Mobile Ads SDK.
+        Before any ad is requested, the app asks for your consent through
+        Google's User Messaging Platform where the law requires it, and on iOS
+        through Apple's App Tracking Transparency prompt. Depending on your
+        choices, ads are personalized or not.
+      </p>
+      <p>
+        To serve ads, the SDK sends Google data such as your device's IP address
+        (used to estimate a coarse location), device and advertising
+        identifiers, interactions with the ads, and crash and diagnostic
+        information. This is described in Google's privacy policy and in the App
+        Store and Google Play privacy sections of the app. Your AdMob reports
+        are never part of what the SDK sends.
+      </p>
+      <p>
+        A Premium subscription that removes the ads is planned; until it exists,
+        the accounts that publish the app see no ads.
+      </p>
+
+      <h2>Storage and protection</h2>
+      <ul>
+        <li>
+          On iOS, Google sign-in tokens are stored in the Keychain. On Android,
+          sign-in is handled by Google Play services and the app keeps only what
+          it needs in its private storage.
+        </li>
+        <li>
+          Fetched reports are cached in the app's private storage on your
+          device, so the dashboard works offline. Caches never leave the device
+          and are excluded from cloud backups.
+        </li>
+        <li>
+          You can additionally protect the app with Face ID, Touch ID or your
+          device's biometrics.
+        </li>
+      </ul>
+
+      <h2>What the app never does</h2>
+      <ul>
+        <li>
+          No report, account or earnings data is transmitted to the developer or
+          to any third party.
+        </li>
+        <li>
+          No analytics or tracking SDKs are included beyond the advertising SDK
+          described above.
+        </li>
+        <li>
+          No data is sold, rented, or used for profiling by the developer.
+        </li>
+        <li>
+          No human beings read your data; there is nowhere for them to read it
+          from.
+        </li>
+      </ul>
+
+      <h2>Limited Use disclosure</h2>
+      <p>
+        Adboardly's use and transfer to any other app of information received
+        from Google APIs will adhere to the <a
+          href="https://developers.google.com/terms/api-services-user-data-policy"
+          >Google API Services User Data Policy</a
+        >, including the Limited Use requirements.
+      </p>
+
+      <h2>Data retention and deletion</h2>
+      <ul>
+        <li>
+          Signing out of an account in the app deletes its tokens and its cached
+          reports and widget snapshot from the device.
+        </li>
+        <li>
+          "Delete account" in the app does the same and also revokes the app's
+          access to your Google account.
+        </li>
+        <li>Deleting the app removes all remaining local data.</li>
+        <li>
+          You can revoke Adboardly's access to your Google account at any time
+          at <a href="https://myaccount.google.com/permissions"
+            >myaccount.google.com/permissions</a
+          >.
+        </li>
+      </ul>
+
+      <h2>Children</h2>
+      <p>
+        The app is a professional tool for AdMob publishers and is not directed
+        at children.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If this policy changes, the new version will be published at this same
+        address with an updated effective date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For any privacy question: <a href="mailto:contact@alfredohdz.io"
+          >contact@alfredohdz.io</a>
+      </p>
+
+      <p class="text-sm opacity-70">
+        Adboardly · Jesús Alfredo Hernández Alarcón · <a href="/adboardly/"
+          >alfredohdz.io/adboardly</a
+        ><br />
+        Google AdMob is a trademark of Google LLC. Adboardly is an independent app
+        and is not affiliated with or endorsed by Google.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>

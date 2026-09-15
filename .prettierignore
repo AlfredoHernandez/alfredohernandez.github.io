@@ -11,3 +11,5 @@
 !.prettierrc
 !.eslintrc.js
 !README.md
+# Plain-text files served as-is (ads.txt, app-ads.txt)
+/public/*.txt

@@ -16,7 +16,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/rss": "^2.3.0",
+    "@astrojs/rss": "^4.0.19",
     "@resvg/resvg-js": "^2.4.1",
     "astro": "^2.1.5",
     "fuse.js": "^6.6.2",

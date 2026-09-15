@@ -9,6 +9,8 @@ import { SITE } from "./src/config";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  scopedStyleStrategy: "where",
+  compressHTML: false,
   integrations: [react(), sitemap()],
   markdown: {
     processor: unified({

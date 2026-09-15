@@ -7,5 +7,5 @@ platforms: [iOS, Android]
 appStore: https://apps.apple.com/app/adboardly/id6789304332
 playStore: https://play.google.com/store/apps/details?id=com.alfredohdz.adboardly
 featured: true
-order: 1
+order: 2
 ---

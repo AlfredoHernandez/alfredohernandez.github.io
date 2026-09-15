@@ -5,5 +5,5 @@ website: https://alfredohdz.io/Tippify/
 icon: /tippify/icon.png
 platforms: [iOS]
 appStore: https://apps.apple.com/app/tippify/id6456704379
-order: 4
+order: 5
 ---

@@ -1,9 +1,10 @@
 ---
 name: Metro CDMX
-description: Metro CDMX es una aplicación que te ayudará a navegar por el metro de la Ciudad de México de una manera mas confiable.
+description: Mapa del Metro, Cablebús y Tren Ligero de la Ciudad de México, con la estación más cercana, planeador de rutas y avisos del STC en tiempo real.
 website: https://alfredohdz.io/Metro/
 icon: /metro/icon.png
 platforms: [iOS, Android]
 appStore: https://apps.apple.com/app/metro-cdmx/id1575157353
-order: 3
+featured: true
+order: 1
 ---

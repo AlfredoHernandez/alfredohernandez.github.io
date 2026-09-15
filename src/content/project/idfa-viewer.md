@@ -6,5 +6,5 @@ icon: /idfa-viewer/icon.png
 platforms: [iOS]
 appStore: https://apps.apple.com/app/idfa-viewer/id6751819289
 featured: true
-order: 2
+order: 3
 ---

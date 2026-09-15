@@ -22,10 +22,12 @@ const projects = await getCollection("project");
         <>
           <h1 class="project-title">{data.name}</h1>
           <p>{data.description}</p>
-          <div>
-            <b>Website:</b>{" "}
-            <LinkButton href={data.website}>{data.website}</LinkButton>{" "}
-          </div>
+          {data.website && (
+            <div>
+              <b>Website:</b>{" "}
+              <LinkButton href={data.website}>{data.website}</LinkButton>
+            </div>
+          )}
           <Hr />
           <br />
         </>

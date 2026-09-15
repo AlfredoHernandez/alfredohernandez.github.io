@@ -41,7 +41,7 @@ const tagPosts = getPostsByTag(posts, tag);
     pageTitle={`Tag:${tag}`}
     pageDesc={`All the articles with the tag "${tag}".`}
   >
-    <ul>
+    <ul class="post-grid">
       {
         tagPosts.map(({ data }) => (
           <Card href={`/posts/${slugify(data)}`} frontmatter={data} />

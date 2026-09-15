@@ -19,6 +19,12 @@ export const projectSchema = z
     name: z.string(),
     description: z.string(),
     website: z.string().optional(),
+    icon: z.string().optional(),
+    platforms: z.array(z.enum(["iOS", "Android", "Web"])).default([]),
+    appStore: z.string().optional(),
+    playStore: z.string().optional(),
+    featured: z.boolean().default(false),
+    order: z.number().default(100),
   })
   .strict();
 

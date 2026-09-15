@@ -1,0 +1,91 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  project: CollectionEntry<"project">["data"];
+}
+
+const { project } = Astro.props;
+const { name, description, website, icon, platforms, appStore, playStore } =
+  project;
+---
+
+<li class="card project-card">
+  <div class="project-head">
+    {
+      icon ? (
+        <img src={icon} alt="" width="52" height="52" class="project-icon" />
+      ) : (
+        <span class="project-icon project-icon-placeholder" aria-hidden="true">
+          {name.slice(0, 1)}
+        </span>
+      )
+    }
+    {platforms.length > 0 && <span class="pill">{platforms.join(" · ")}</span>}
+  </div>
+  <div class="project-body">
+    <h3>
+      {website ? <a href={website}>{name}</a> : name}
+    </h3>
+    <p>{description}</p>
+  </div>
+  {
+    (appStore || playStore || website) && (
+      <div class="project-links">
+        {appStore && (
+          <a href={appStore} class="store store-primary">
+            App Store
+          </a>
+        )}
+        {playStore && (
+          <a href={playStore} class="store">
+            Google Play
+          </a>
+        )}
+        {!appStore && !playStore && website && (
+          <a href={website} class="store">
+            Visit
+          </a>
+        )}
+      </div>
+    )
+  }
+</li>
+
+<style>
+  .project-card {
+    @apply flex flex-col gap-4 p-6;
+  }
+  .project-head {
+    @apply flex items-center justify-between;
+  }
+  .project-icon {
+    @apply rounded-[13px] border border-skin-line;
+    height: 52px;
+    width: 52px;
+  }
+  .project-icon-placeholder {
+    @apply flex items-center justify-center bg-skin-card-muted font-display text-xl font-bold;
+  }
+  .project-body {
+    @apply flex flex-col gap-1.5;
+  }
+  .project-body h3 {
+    @apply text-xl font-bold;
+  }
+  .project-body h3 a {
+    @apply hover:text-skin-accent;
+  }
+  .project-body p {
+    @apply text-sm leading-relaxed opacity-80;
+  }
+  .project-links {
+    @apply mt-auto flex flex-wrap gap-2 pt-1;
+  }
+  .store {
+    @apply rounded-lg border border-skin-line px-3 py-1.5 text-xs font-medium hover:border-skin-accent hover:text-skin-accent;
+  }
+  .store-primary {
+    @apply border-skin-fill bg-skin-inverted text-skin-inverted hover:border-skin-accent hover:bg-skin-accent hover:text-skin-inverted;
+  }
+</style>

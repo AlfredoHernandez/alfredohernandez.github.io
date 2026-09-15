@@ -8,25 +8,24 @@ export interface Props {
 }
 
 export default function Card({ href, frontmatter, secHeading = true }: Props) {
-  const { title, pubDatetime, description } = frontmatter;
+  const { title, pubDatetime, description, tags } = frontmatter;
+  const headingClass =
+    "font-display text-lg font-bold leading-snug group-hover:text-skin-accent";
   return (
-    <li className="my-6">
-      <a
-        href={href}
-        className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-      >
+    <li className="card group">
+      <a href={href} className="flex h-full flex-col gap-2.5 p-5">
+        <div className="flex items-center gap-2 text-xs opacity-70">
+          <Datetime datetime={pubDatetime} />
+          <span aria-hidden="true">·</span>
+          <span>{tags[0]?.toLowerCase()}</span>
+        </div>
         {secHeading ? (
-          <h2 className="text-lg font-medium decoration-dashed hover:underline">
-            {title}
-          </h2>
+          <h2 className={headingClass}>{title}</h2>
         ) : (
-          <h3 className="text-lg font-medium decoration-dashed hover:underline">
-            {title}
-          </h3>
+          <h3 className={headingClass}>{title}</h3>
         )}
+        <p className="text-sm leading-relaxed opacity-80">{description}</p>
       </a>
-      <Datetime datetime={pubDatetime} />
-      <p>{description}</p>
     </li>
   );
 }

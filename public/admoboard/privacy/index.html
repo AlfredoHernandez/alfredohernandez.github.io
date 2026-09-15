@@ -1,121 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AdMoboard — Privacy Policy</title>
-  <meta name="description" content="Privacy policy for the AdMoboard iOS app: what Google user data it accesses, how it is used, and how it is protected." />
-  <style>
-    :root {
-      color-scheme: light dark;
-      --bg: #ffffff; --fg: #1d1d1f; --muted: #6e6e73; --card: #f5f5f7; --tint: #0a84ff;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root { --bg: #000; --fg: #f5f5f7; --muted: #98989d; --card: #1c1c1e; }
-    }
-    * { box-sizing: border-box; margin: 0; }
-    body { background: var(--bg); color: var(--fg); font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    main { max-width: 720px; margin: 0 auto; padding: 48px 24px 64px; }
-    h1 { font-size: 34px; letter-spacing: -0.02em; margin-bottom: 4px; }
-    .date { color: var(--muted); font-size: 15px; margin-bottom: 32px; }
-    h2 { font-size: 21px; margin: 36px 0 10px; }
-    p, li { margin: 8px 0; }
-    ul { padding-left: 22px; }
-    .card { background: var(--card); border-radius: 16px; padding: 18px 22px; margin: 20px 0; }
-    a { color: var(--tint); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card); color: var(--muted); font-size: 14px; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>AdMoboard Privacy Policy</h1>
-    <p class="date">Effective date: July 13, 2026</p>
-
+  <head>
+    <meta charset="utf-8" />
+    <title>Adboardly</title>
+    <meta http-equiv="refresh" content="0; url=/adboardly/privacy/" />
+    <link rel="canonical" href="https://alfredohdz.io/adboardly/privacy/" />
+  </head>
+  <body>
     <p>
-      AdMoboard ("the app") is an iOS application developed by Jesús Alfredo Hernández Alarcón
-      that displays your Google AdMob earnings on your device. This policy explains exactly what
-      data the app accesses, what it does with it, and — just as importantly — what it never does.
+      Adboardly moved to
+      <a href="/adboardly/privacy/">alfredohdz.io/adboardly/privacy/</a>.
     </p>
-
-    <div class="card">
-      <p><strong>The short version:</strong> your data goes from Google to your iPhone and stays there.
-      AdMoboard has no servers, no analytics, no trackers and no third-party SDKs. Nothing you see in
-      the app is collected by us or shared with anyone.</p>
-    </div>
-
-    <h2>Google user data the app accesses</h2>
-    <p>When you sign in with Google, the app requests the following, and nothing more:</p>
-    <ul>
-      <li><strong>Basic profile</strong> (name, email address, profile photo) — used solely to label the
-        account inside the app, so you can tell your accounts apart.</li>
-      <li><strong>AdMob data</strong> through the official AdMob API with the read-only scope
-        (<code>https://www.googleapis.com/auth/admob.readonly</code>): your publisher account information
-        (publisher ID, reporting currency and time zone), earnings reports, and your inventory of apps
-        and ad units. The scope is read-only by design — the app cannot change anything in your AdMob account.</li>
-    </ul>
-
-    <h2>How that data is used</h2>
-    <ul>
-      <li>Reports are fetched <strong>directly from Google's servers to your device</strong> over HTTPS and
-        rendered on screen for you. There is no intermediary server: the developer never receives, sees,
-        stores or processes your data.</li>
-      <li>The app's "Ask" feature interprets your questions <strong>on-device</strong> using Apple
-        Intelligence. Your earnings data is never sent to any external model or service; every figure in
-        every answer is computed locally from the report already on your device.</li>
-      <li>A summary of today's earnings is stored in the app's private container on your device so the
-        home-screen widget can display it.</li>
-    </ul>
-
-    <h2>Storage and protection</h2>
-    <ul>
-      <li>Google sign-in tokens are stored in the <strong>iOS Keychain</strong> on your device.</li>
-      <li>Fetched reports are cached in the app's private container on your device, so the dashboard
-        works offline. Caches never leave the device (they are excluded from anything the developer can access).</li>
-      <li>You can additionally protect the app with <strong>Face ID / Touch ID</strong>.</li>
-    </ul>
-
-    <h2>What the app never does</h2>
-    <ul>
-      <li>No data is transmitted to the developer or to any third party.</li>
-      <li>No advertising, analytics or tracking SDKs are included.</li>
-      <li>No data is sold, rented, or used for advertising or profiling purposes.</li>
-      <li>No human beings read your data — there is nowhere for them to read it from.</li>
-      <li>The App Store privacy label for AdMoboard is <strong>"Data Not Collected"</strong>.</li>
-    </ul>
-
-    <h2>Limited Use disclosure</h2>
-    <div class="card">
-      <p>
-        AdMoboard's use and transfer to any other app of information received from Google APIs will adhere
-        to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
-        User Data Policy</a>, including the <strong>Limited Use</strong> requirements.
-      </p>
-    </div>
-
-    <h2>Data retention and deletion</h2>
-    <ul>
-      <li>Signing out of an account in the app deletes its tokens from the Keychain and its cached
-        reports and widget snapshot from the device.</li>
-      <li>Deleting the app removes all remaining local data.</li>
-      <li>You can revoke AdMoboard's access to your Google account at any time at
-        <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
-    </ul>
-
-    <h2>Children</h2>
-    <p>The app is a professional tool for AdMob publishers and is not directed at children.</p>
-
-    <h2>Changes to this policy</h2>
-    <p>If this policy changes, the new version will be published at this same address with an updated
-      effective date.</p>
-
-    <h2>Contact</h2>
-    <p>For any privacy question: <a href="mailto:contact@alfredohdz.io">contact@alfredohdz.io</a></p>
-
-    <footer>
-      <p>AdMoboard · Jesús Alfredo Hernández Alarcón · <a href="https://alfredohdz.io/admoboard/">alfredohdz.io/admoboard</a></p>
-      <p>Google AdMob is a trademark of Google LLC. AdMoboard is an independent app and is not affiliated with or endorsed by Google.</p>
-    </footer>
-  </main>
-</body>
+  </body>
 </html>

@@ -1,0 +1,244 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import Hr from "@components/Hr.astro";
+import LinkButton from "@components/LinkButton.astro";
+import { SITE } from "@config";
+
+const appStore = "https://apps.apple.com/app/adboardly/id6789304332";
+const playStore =
+  "https://play.google.com/store/apps/details?id=com.alfredohdz.adboardly";
+---
+
+<Layout
+  title={`Adboardly | ${SITE.title}`}
+  description="Adboardly is a dashboard for your Google AdMob earnings on iPhone and Android: today at a glance, trends, breakdowns by app and country, payments, widgets, and questions answered on your device."
+>
+  <Header activeNav="projects" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section id="hero">
+      <img
+        src="/adboardly/icon.png"
+        alt=""
+        width="96"
+        height="96"
+        class="app-icon"
+      />
+      <h1>Adboardly</h1>
+      <p class="tagline">
+        Your AdMob earnings, at a glance. On iPhone and Android.
+      </p>
+      <p>
+        Sign in with your Google account and Adboardly reads your reports
+        straight from AdMob. There is no server in between: your data goes from
+        Google to your phone and nowhere else.
+      </p>
+      <div class="stores">
+        <LinkButton href={appStore} className="store-button">
+          Download on the App Store
+        </LinkButton>
+        <LinkButton href={playStore} className="store-button">
+          Get it on Google Play
+        </LinkButton>
+      </div>
+    </section>
+
+    <Hr />
+
+    <section id="screens">
+      <h2>What you see</h2>
+      <div class="gallery">
+        <figure>
+          <img
+            src="/adboardly/ios-dashboard.webp"
+            alt="Dashboard on iPhone: today's earnings against the 7-day average, with yesterday, the last 7 days, this month and last month"
+            width="480"
+            height="1038"
+            loading="lazy"
+          />
+          <figcaption>Today, in context</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/adboardly/ios-rhythm.webp"
+            alt="Your rhythm card: best and lowest day, strongest weekday, the 14-day trend and next week's range"
+            width="480"
+            height="1038"
+            loading="lazy"
+          />
+          <figcaption>Your rhythm</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/adboardly/android-breakdown.webp"
+            alt="Breakdown by app on Android"
+            width="480"
+            height="853"
+            loading="lazy"
+          />
+          <figcaption>Breakdowns</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/adboardly/android-payments.webp"
+            alt="Payments on Android: unpaid balance, this year, and twelve months of earnings"
+            width="480"
+            height="853"
+            loading="lazy"
+          />
+          <figcaption>Payments</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/adboardly/ios-ask.webp"
+            alt="Ask on iPhone, with suggested questions answered on the device"
+            width="480"
+            height="1038"
+            loading="lazy"
+          />
+          <figcaption>Ask</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <Hr />
+
+    <section id="features" class="prose">
+      <h2>What it does</h2>
+      <ul>
+        <li>
+          <strong>Earnings at a glance.</strong> Today against your 7-day average,
+          plus yesterday, the last 7 days, this month and last month, each compared
+          like for like.
+        </li>
+        <li>
+          <strong>Your rhythm.</strong> Your best and lowest day of the month, your
+          strongest weekday, the 14-day trend and a range for next week.
+        </li>
+        <li>
+          <strong>Any single day.</strong> A screen for one day, measured against
+          what a usual day earns you.
+        </li>
+        <li>
+          <strong>Breakdowns.</strong> Earnings by app, country and day for any period,
+          with a drill-down into ad units.
+        </li>
+        <li>
+          <strong>Payments.</strong> Your estimated unpaid balance, or the exact
+          figure once you record your last payout; progress toward your threshold;
+          twelve months of earnings.
+        </li>
+        <li>
+          <strong>Stay informed.</strong> A daily summary, an alert when a day earns
+          far less than usual, another when AdMob blocks one of your apps, a home-screen
+          widget, and everything available offline.
+        </li>
+        <li>
+          <strong>Ask.</strong> "How am I doing?", "Which app earns me the most?",
+          "How much does AdMob owe me?" Answered in plain language on your device:
+          with Apple Intelligence on iPhone, with Gemini Nano on Android. The model
+          only understands the question; the app computes every figure.
+        </li>
+        <li>
+          <strong>Private by design.</strong> Read-only access to your reports, several
+          Google accounts, a biometric lock, and in-app account deletion that revokes
+          the Google grant.
+        </li>
+      </ul>
+      <p>
+        Try the demo without signing in to explore every screen with sample
+        data.
+      </p>
+    </section>
+
+    <Hr />
+
+    <section id="google" class="prose">
+      <h2>How it works with your Google account</h2>
+      <p>
+        Adboardly reads your AdMob reports through the official AdMob API with
+        the read-only scope (<code>admob.readonly</code>). It can never change
+        your AdMob configuration. Reports are fetched directly from Google to
+        your device, shown to you, and cached only on your device. Adboardly has
+        no servers and never sends your reports to anyone.
+      </p>
+      <p>
+        The free version shows native ads served by Google; that is the only
+        data that leaves the device, and only to Google. The <a
+          href="/adboardly/privacy/">privacy policy</a
+        > has the full details.
+      </p>
+    </section>
+
+    <Hr />
+
+    <section id="contact" class="prose">
+      <h2>Contact</h2>
+      <p>
+        Questions or feedback: <a href="mailto:contact@alfredohdz.io"
+          >contact@alfredohdz.io</a>
+      </p>
+      <p class="legal">
+        Google AdMob is a trademark of Google LLC. Adboardly is an independent
+        app and is not affiliated with or endorsed by Google.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  #main-content {
+    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  #hero {
+    @apply pb-6 pt-8;
+  }
+  .app-icon {
+    @apply mb-4 rounded-3xl border-2 border-skin-line;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-6 sm:text-5xl;
+  }
+  .tagline {
+    @apply mb-4 text-lg font-semibold sm:text-xl;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .stores {
+    @apply mt-6 flex flex-wrap gap-3;
+  }
+  .stores :global(.store-button) {
+    @apply rounded-full border-2 border-skin-accent px-5 py-2 font-semibold text-skin-base hover:bg-skin-accent hover:text-skin-inverted;
+  }
+  section h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  #screens {
+    @apply pb-6 pt-12;
+  }
+  .gallery {
+    @apply mt-6 flex snap-x gap-4 overflow-x-auto pb-4;
+  }
+  .gallery figure {
+    @apply w-56 flex-none snap-start;
+  }
+  .gallery img {
+    @apply rounded-2xl border-2 border-skin-line;
+  }
+  .gallery figcaption {
+    @apply mt-2 text-center text-sm opacity-80;
+  }
+  #features,
+  #google,
+  #contact {
+    @apply pb-6 pt-12;
+  }
+  .legal {
+    @apply text-sm opacity-70;
+  }
+</style>

@@ -1,0 +1,191 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import Hr from "@components/Hr.astro";
+import LinkButton from "@components/LinkButton.astro";
+import { SITE } from "@config";
+
+const appStore = "https://apps.apple.com/app/idfa-viewer/id6751819289";
+---
+
+<Layout
+  title={`IDFA Viewer | ${SITE.title}`}
+  description="IDFA Viewer is the simplest way to find, copy and share your iPhone's Identifier for Advertisers (IDFA). Request tracking permission, read the identifier, copy it in one tap."
+>
+  <Header activeNav="projects" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section id="hero">
+      <img
+        src="/idfa-viewer/icon.png"
+        alt=""
+        width="96"
+        height="96"
+        class="app-icon"
+      />
+      <h1>IDFA Viewer</h1>
+      <p class="tagline">Your iPhone's advertising identifier, in one tap.</p>
+      <p>
+        The Identifier for Advertisers (IDFA) is the identifier Apple assigns to
+        your device for advertising. Finding it by hand is confusing. IDFA
+        Viewer shows it to you, lets you copy it, and lets you share it.
+      </p>
+      <div class="stores">
+        <LinkButton href={appStore} className="store-button">
+          Download on the App Store
+        </LinkButton>
+      </div>
+    </section>
+
+    <Hr />
+
+    <section id="screens">
+      <h2>What you see</h2>
+      <div class="gallery">
+        <figure>
+          <img
+            src="/idfa-viewer/ios-1.png"
+            alt="Main screen before permission: authorization status not determined, with a button to request tracking permission"
+            width="477"
+            height="1038"
+            loading="lazy"
+          />
+          <figcaption>Request permission</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/idfa-viewer/ios-2.png"
+            alt="Main screen once authorized: the IDFA shown in full with buttons to copy it to the clipboard and share it"
+            width="477"
+            height="1038"
+            loading="lazy"
+          />
+          <figcaption>Copy or share</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/idfa-viewer/ios-3.png"
+            alt="About screen explaining what the IDFA is and how App Tracking Transparency protects it"
+            width="477"
+            height="1038"
+            loading="lazy"
+          />
+          <figcaption>Learn what it is</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <Hr />
+
+    <section id="features" class="prose">
+      <h2>What it does</h2>
+      <ul>
+        <li>
+          <strong>Shows your IDFA.</strong> Ask for tracking permission through Apple's
+          App Tracking Transparency prompt and the identifier appears on screen.
+        </li>
+        <li>
+          <strong>Copy in one tap.</strong> The identifier goes to your clipboard,
+          ready to paste into a test device list, a campaign tool or a bug report.
+        </li>
+        <li>
+          <strong>Share it.</strong> Send the identifier to another device or app
+          through the standard iOS share sheet.
+        </li>
+        <li>
+          <strong>Explains itself.</strong> A short About screen describes what the
+          IDFA is, why it is resettable, and how you control access to it.
+        </li>
+      </ul>
+      <p>
+        Made for developers testing ad frameworks, marketers validating
+        campaigns, and anyone curious about their own device identifiers.
+      </p>
+    </section>
+
+    <Hr />
+
+    <section id="privacy" class="prose">
+      <h2>Privacy</h2>
+      <p>
+        The identifier is read on your device and shown to you. The app does not
+        send it anywhere unless you copy or share it yourself. The app has no
+        servers and no analytics. The <a href="/idfa-viewer/privacy/"
+          >privacy policy</a
+        > has the full details.
+      </p>
+    </section>
+
+    <Hr />
+
+    <section id="contact" class="prose">
+      <h2>Contact</h2>
+      <p>
+        Questions or feedback: <a href="mailto:contact@alfredohdz.io"
+          >contact@alfredohdz.io</a
+        >
+      </p>
+      <p class="legal">
+        Apple, iPhone and App Tracking Transparency are trademarks of Apple Inc.
+        IDFA Viewer is an independent app and is not affiliated with or endorsed
+        by Apple.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  #main-content {
+    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  #hero {
+    @apply pb-6 pt-8;
+  }
+  .app-icon {
+    @apply mb-4 rounded-3xl border-2 border-skin-line;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-6 sm:text-5xl;
+  }
+  .tagline {
+    @apply mb-4 text-lg font-semibold sm:text-xl;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .stores {
+    @apply mt-6 flex flex-wrap gap-3;
+  }
+  .stores :global(.store-button) {
+    @apply rounded-full border-2 border-skin-accent px-5 py-2 font-semibold text-skin-base hover:bg-skin-accent hover:text-skin-inverted;
+  }
+  section h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  #screens {
+    @apply pb-6 pt-12;
+  }
+  .gallery {
+    @apply mt-6 flex snap-x gap-4 overflow-x-auto pb-4;
+  }
+  .gallery figure {
+    @apply w-56 flex-none snap-start;
+  }
+  .gallery img {
+    @apply rounded-2xl border-2 border-skin-line;
+  }
+  .gallery figcaption {
+    @apply mt-2 text-center text-sm opacity-80;
+  }
+  #features,
+  #privacy,
+  #contact {
+    @apply pb-6 pt-12;
+  }
+  .legal {
+    @apply text-sm opacity-70;
+  }
+</style>

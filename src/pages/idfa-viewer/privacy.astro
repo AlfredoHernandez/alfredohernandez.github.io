@@ -1,0 +1,141 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import { SITE } from "@config";
+---
+
+<Layout
+  title={`IDFA Viewer Privacy Policy | ${SITE.title}`}
+  description="What IDFA Viewer accesses, what it does with it, and what it never does."
+>
+  <Header activeNav="projects" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section id="privacy" class="prose mb-28 max-w-3xl">
+      <h1 class="text-2xl tracking-wider sm:text-3xl">
+        IDFA Viewer Privacy Policy
+      </h1>
+      <p><em>Effective date: September 15, 2026.</em></p>
+
+      <p>
+        IDFA Viewer ("the app") is an iOS application developed by Jesús Alfredo
+        Hernández Alarcón that displays your device's Identifier for Advertisers
+        (IDFA). This policy explains what data the app accesses, what it does
+        with it, and what it never does.
+      </p>
+      <blockquote>
+        The short version: the app reads the identifier on your device and shows
+        it to you. It leaves your device only when you copy or share it
+        yourself. The app has no servers and no analytics. The free version
+        shows ads served by Google, and that is the only data that leaves your
+        device on its own.
+      </blockquote>
+
+      <h2>Data the app accesses</h2>
+      <ul>
+        <li>
+          <strong>Identifier for Advertisers (IDFA).</strong> Read through Apple's
+          AdSupport framework only after you grant permission in the App Tracking
+          Transparency prompt. If you decline, the identifier is unavailable and
+          the app shows that status instead.
+        </li>
+        <li>
+          <strong>Tracking authorization status.</strong> Whether you have allowed,
+          denied or not yet decided on tracking, so the app can tell you what to
+          do next.
+        </li>
+      </ul>
+
+      <h2>How that data is used</h2>
+      <ul>
+        <li>The identifier is displayed on screen.</li>
+        <li>
+          When you tap "Copy to Clipboard", it is placed on your device's
+          clipboard. Where it goes from there is up to you and the apps you
+          paste it into.
+        </li>
+        <li>
+          When you tap "Share IDFA", it is handed to the iOS share sheet. The
+          app you pick receives it under that app's own privacy policy.
+        </li>
+        <li>
+          The app does not store the identifier, does not send it to the
+          developer, and does not send it to any third party.
+        </li>
+      </ul>
+
+      <h2>Advertising</h2>
+      <p>
+        The free version shows ads served by the Google Mobile Ads SDK. Before
+        any ad is requested, the app asks for your consent through Google's User
+        Messaging Platform where the law requires it. Depending on your choices
+        and on your App Tracking Transparency decision, ads are personalized or
+        not.
+      </p>
+      <p>
+        To serve ads, the SDK sends Google data such as your device's IP address
+        (used to estimate a coarse location), device and advertising
+        identifiers, interactions with the ads, and crash and diagnostic
+        information. This is described in Google's privacy policy and in the App
+        Store privacy section of the app.
+      </p>
+
+      <h2>What the app never does</h2>
+      <ul>
+        <li>No data is transmitted to the developer.</li>
+        <li>
+          No analytics or tracking SDKs are included beyond the advertising SDK
+          described above.
+        </li>
+        <li>
+          No data is sold, rented, or used for profiling by the developer.
+        </li>
+        <li>No account is required and none is created.</li>
+      </ul>
+
+      <h2>Your control</h2>
+      <ul>
+        <li>
+          You can revoke tracking permission at any time in Settings, under
+          Privacy &amp; Security, then Tracking. The app will then show the
+          identifier as unavailable.
+        </li>
+        <li>
+          You can reset your IDFA at any time in Settings, under Privacy &amp;
+          Security, then Apple Advertising.
+        </li>
+        <li>Deleting the app removes everything it kept on the device.</li>
+      </ul>
+
+      <h2>Children</h2>
+      <p>
+        The app is a utility for developers and marketers and is not directed at
+        children.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If this policy changes, the new version will be published at this same
+        address with an updated effective date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For any privacy question: <a href="mailto:contact@alfredohdz.io"
+          >contact@alfredohdz.io</a
+        >
+      </p>
+
+      <p class="text-sm opacity-70">
+        IDFA Viewer · Jesús Alfredo Hernández Alarcón · <a href="/idfa-viewer/"
+          >alfredohdz.io/idfa-viewer</a
+        ><br />
+        Apple and App Tracking Transparency are trademarks of Apple Inc. IDFA Viewer
+        is an independent app and is not affiliated with or endorsed by Apple.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
